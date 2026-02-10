@@ -12,9 +12,9 @@ wss.on('connection', function connection(ws) {
 
   ws.send('Hello from server!');
 
-  setInterval(() => {
-    ws.send('Hello from server!');
-  }, 3000);
+  ws.on('close', ()=>{
+    console.log('Client disconnected')
+  })
 });
 
 console.log('Server running on port: 6000')
